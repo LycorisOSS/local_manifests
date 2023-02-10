@@ -1,49 +1,49 @@
 # Project
 
-This projects aims to create an upgradable AOSP build system for the OnePlus 5 (Cheeseburger) and the OnePlus 5T (Dumpling).
+This projects aims to create an upgradable AOSP build system for the Redmi K20 Pro (raphael).
 No repository from AOSP is changed: no commit over AOSP is at the moment present on these sources.
 
 All the changes are provided in separate repositories: this allows to upgrade Android with minimal effort, potentially also for future major versions.
 
-Most of the added repositories is provided by LineageOS or CAF, so thanks to them for those repos.
+Most of the added repositories is provided by LineageOS and PixelExperience or CAF, so thanks to them for those repos.
 
 # Build instructions
-Follow the instructions from Google to setup a machine to build Android 13:
+Follow the instructions from Google to setup a machine to build AOSP master branch:
 https://source.android.com/setup/build/initializing
 
 Then, sync all the sources:
 ```
-$ repo init -u https://android.googlesource.com/platform/manifest -b android-13.0.0_r30
+$ repo init -u https://android.googlesource.com/platform/manifest -b master
 $ cd .repo
-$ git clone --branch a13/gl https://github.com/roberto-sartori-gl/local_manifests.git local_manifests
+$ git clone --branch master https://github.com/log1cs/local_manifests.git local_manifests
 $ cd ..
 $ repo sync -c --no-clone-bundle --no-tags
 ```
 then:
 ```
 $ source build/envsetup.sh
-$ lunch aosp_cheeseburger-user
+$ lunch aosp_raphael-user (or lunch aosp_raphael-userdebug)
 $ make -j12
 ```
-the images will be available in `out/target/product/cheeseburger`.
+the images will be available in `out/target/product/raphael`.
 
 To build an OTA:
 ```
 $ source build/envsetup.sh
-$ lunch aosp_cheeseburger-user
+$ lunch aosp_raphael-user (or lunch aosp_raphael-userdebug)
 $ make -j12
 $ make otatools-package -j12
 $ make otapackage_custom -j12
 ```
-and the OTA zip will be available in `out/target/product/cheeseburger`.
+and the OTA zip will be available in `out/target/product/raphael`.
 
 # Flash instructions
 The images can be flashed using fastboot:
 ```
-$ fastboot flash boot out/target/product/cheeseburger/boot.img
-$ fastboot flash recovery out/target/product/cheeseburger/recovery.img
-$ fastboot flash system out/target/product/cheeseburger/system.img
-$ fastboot flash vendor out/target/product/cheeseburger/vendor.img
+$ fastboot flash boot out/target/product/raphael/boot.img
+$ fastboot flash recovery out/target/product/raphael/recovery.img
+$ fastboot flash system out/target/product/raphael/system.img
+$ fastboot flash vendor out/target/product/raphael/vendor.img
 ```
 Format data if this is a first flash:
 ```
@@ -53,8 +53,6 @@ Note that not all the fastboot versions support the 'format' command.
 
 The OTA can be flashed from the recovery (using the 'ADB sideload' feature) or using third party recoveries like TWRP.
 
-To build for Dumpling, run the same commands with 'dumpling' instead of 'cheeseburger' in commands and paths.
-
 # Build the kernel
 The ROM sources include a prebuilt kernel. To build a kernel from sources and update it in the Android sources, follow these instructions.
 
@@ -63,7 +61,7 @@ Download the sources and the cross compilers (needed only the first time):
 $ cd ~
 $ mkdir kernel_build
 $ cd kernel_build
-$ git clone --single-branch --branch gl/lineage-20 https://github.com/roberto-sartori-gl/kernel_oneplus_msm8998.git kernel_oneplus_msm8998
+$ git clone --single-branch --branch thirteen https://github.com/log1cs/kernel_xiaomi_sm8150.git kernel_xiaomi_sm8150
 $ git clone --depth 1 -b android12L-release --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/ prebuilt_aarch64
 $ git clone --depth 1 -b android12L-release --single-branch https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9/ prebuilt_arm
 $ git clone --depth 1 -b android-13.0.0_r6 --single-branch https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86 prebuilt_clang
@@ -72,19 +70,19 @@ $ git clone --depth 1 -b android-13.0.0_r6 --single-branch https://android.googl
 
 Build the kernel:
 ```
-$ cd ~/kernel_build/kernel_oneplus_msm8998
+$ cd ~/kernel_build/kernel_xiaomi_sm8150
 $ git pull
 $ CC_ARM32_PATH=~/kernel_build/prebuit_arm/bin
 $ CC_ARCH64_PATH=~/kernel_build/prebuilt_aarch64/bin
 $ CC_CLANG_PATH=~/kernel_build/prebuilt_clang/clang-r450784d/bin
 $ MAKE_PATH=~/kernel_build/prebuilt_tools/linux-x86/bin
 
-$ ${MAKE_PATH}/make -j8 ARCH=arm64 CROSS_COMPILE_ARM32=arm-linux-androidkernel- CROSS_COMPILE=aarch64-linux-android- CC=clang CLANG_TRIPLE=aarch64-linux- PATH="${CC_ARM32_PATH}:${CC_ARCH64_PATH}:${CC_CLANG_PATH}:${PATH}" O=out LLVM=1 LLVM_IAS=1 lineage_oneplus5_defconfig
+$ ${MAKE_PATH}/make -j8 ARCH=arm64 CROSS_COMPILE_ARM32=arm-linux-androidkernel- CROSS_COMPILE=aarch64-linux-android- CC=clang CLANG_TRIPLE=aarch64-linux- PATH="${CC_ARM32_PATH}:${CC_ARCH64_PATH}:${CC_CLANG_PATH}:${PATH}" O=out LLVM=1 LLVM_IAS=1 lycoris_raphael_defconfig
 $ ${MAKE_PATH}/make -j8 ARCH=arm64 CROSS_COMPILE_ARM32=arm-linux-androidkernel- CROSS_COMPILE=aarch64-linux-android- CC=clang CLANG_TRIPLE=aarch64-linux- PATH="${CC_ARM32_PATH}:${CC_ARCH64_PATH}:${CC_CLANG_PATH}:${PATH}" O=out LLVM=1 LLVM_IAS=1
 ```
 Copy the Image.gz-dtb file from the prebuilt directory to the Android build system:
 ```
-$ cp ~/kernel_build/kernel_oneplus_msm8998/out/arch/arm64/boot/Image.gz-dtb ~/aosp_build_system/kernel/oneplus/prebuilt/Image.gz-dtb
+$ cp ~/kernel_build/kernel_xiaomi_sm8150/out/arch/arm64/boot/Image.gz-dtb ~/aosp_build_system/kernel/raphael/prebuilt/Image.gz-dtb
 ```
 
 Build Android again to update the kernel.

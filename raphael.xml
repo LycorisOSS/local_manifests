@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="githubgl"
+           fetch="https://github.com/roberto-sartori-gl"
+           revision="refs/heads/gl" />
+
+  <remote  name="lineage"
+           fetch="https://github.com/LineageOS" />
+
+  <remote  name="pixel"
+           fetch="https://github.com/PixelExperience" />
+
+  <remote  name="log1cs"
+           fetch="https://github.com/log1cs" />
+
+  <remote  name="githubglssh"
+           fetch="ssh://git@github.com" />
+
+  <!-- AOSP Master local manifests -->
+  	<!-- Vendor repo -->
+  <project path="vendor/rs" name="vendor_rs" revision="a13/gl" remote="githubgl" />
+
+  <!-- External -->
+  <project path="external/json-c" name="android_external_json-c" revision="lineage-20.0" remote="lineage" />
+  <project path="external/ant-wireless/hidl" name="android_external_ant-wireless_hidl"  revision="lineage-20.0" remote="lineage" />
+
+  <!-- Beginning of added projects from Lineage or Qualcomm (CAF) -->
+  <!-- Sepolicy -->
+  <project path="device/lineage/sepolicy" name="android_device_lineage_sepolicy" revision="lineage-20.0" remote="lineage" />
+  <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" revision="lineage-20.0" remote="githubgl"  />
+  <project path="device/qcom/sepolicy-legacy-um" name="android_device_qcom_sepolicy" revision="lineage-20.0-legacy-um" remote="lineage"  />
+  <project path="device/qcom/sepolicy_vndr-legacy-um" name="device_qcom_sepolicy_vndr-legacy-um" revision="thirteen" remote="pixel"  />
+
+  <!-- Hardware -->
+  <project path="hardware/qcom-caf/bt" name="android_hardware_qcom_bt" revision="lineage-20.0-caf" remote="lineage" />
+
+  <!-- This is an hack to circumvent some security policies from Google: put the wlan hal from Qualcomm in hardware/qcom/wlan/legacy -->
+  <remove-project name="platform/hardware/qcom/wlan" />
+  <project path="hardware/qcom/wlan/legacy" name="android_hardware_qcom_wlan" revision="lineage-20.0-caf" remote="lineage" />
+  <project path="hardware/qcom-caf/common" name="android_hardware_qcom-caf_common" revision="lineage-20.0" remote="lineage" >
+  
+    <!-- Add guard for AOSP hardware/qcom directory. -->
+    <linkfile src="os_pickup_aosp.mk" dest="hardware/qcom/Android.mk" />
+  </project>
+  <project path="hardware/qcom-caf/sm8150/audio" name="android_hardware_qcom_audio" revision="lineage-20.0-caf-sm8150" remote="lineage" />
+  <project path="hardware/qcom-caf/sm8150/display" name="android_hardware_qcom_display" revision="lineage-20.0-caf-sm8150" remote="lineage" />
+  <project path="hardware/qcom-caf/sm8150/media" name="android_hardware_qcom_media	" revision="lineage-20.0-caf-sm8150" remote="lineage" />
+
+  <!-- Vendor -->
+  <project path="vendor/codeaurora/telephony" name="android_vendor_codeaurora_telephony" revision="lineage-20.0" remote="lineage" />
+  <project path="vendor/qcom/opensource/audio" name="android_vendor_qcom_opensource_audio" revision="lineage-20.0" remote="lineage" />
+  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr-legacy-um" name="android_vendor_qcom_opensource_data-ipa-cfg-mgr" revision="lineage-20.0-legacy-um" remote="lineage" />
+  <project path="vendor/qcom/opensource/data-ipa-cfg-mgr" name="android_vendor_qcom_opensource_data-ipa-cfg-mgr" revision="lineage-20.0" remote="lineage" />
+  <project path="vendor/qcom/opensource/dataservices" name="android_vendor_qcom_opensource_dataservices" revision="lineage-20.0" remote="lineage" />
+  <project path="vendor/qcom/opensource/interfaces" name="android_vendor_qcom_opensource_interfaces" revision="lineage-20.0" remote="lineage" />
+  <project path="vendor/qcom/opensource/power" name="android_vendor_qcom_opensource_power" revision="lineage-20.0" remote="lineage" />
+  <project path="vendor/qcom/opensource/thermal-engine" name="android_vendor_qcom_opensource_thermal-engine" revision="master" remote="lineage" />
+
+  <!-- Google projects -->
+  <project path="external/tinyxml" name="platform/external/tinyxml" groups="pdk" remote="aosp" revision="refs/tags/android-11.0.0_r46" />
+
+  <!-- SimpleDeviceConfig -->
+  <project path="packages/apps/SimpleDeviceConfig" name="packages_apps_SimpleDeviceConfig" revision="12.1" remote="githubgl" />
+</manifest>
