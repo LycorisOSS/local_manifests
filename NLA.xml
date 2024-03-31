@@ -11,4 +11,8 @@
   <project path="vendor/nokia/NLA" name="android_vendor_nokia_NLA" revision="split" remote="log1cs" />
   <project path="vendor/nokia/msm8998-common" name="android_vendor_nokia_msm8998-common" revision="lineage-21" remote="log1cs" />  
 
+  <!-- External repositories -->
+  <remove-project path="external/tinyalsa" />
+  <project path="external/tinyalsa" name="android_external_tinyalsa" revision="lineage-21" remote="log1cs" />  
+
 </manifest>
