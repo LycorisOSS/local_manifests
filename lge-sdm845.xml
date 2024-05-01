@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+
+  <remote  name="lge-sdm845"
+           fetch="https://github.com/lge-sdm845" />
+
+  <!-- Device tree & Kernel source & Vendor tree -->
+  <project path="device/lge/judypn" name="android_device_lge_judypn" revision="lineage-21" remote="lge-sdm845" />
+  <project path="device/lge/sdm845-common" name="android_device_lge_sdm845-common" revision="lineage-21" remote="lge-sdm845" />
+  <project path="kernel/lge/sdm845" name="android_kernel_lge_sdm845" revision="lineage-21" remote="lge-sdm845" />
+  <project path="vendor/lge/judypn" name="android_vendor_lge_judypn" revision="lineage-21" remote="lge-sdm845" />
+  <project path="vendor/lge/sdm845-common" name="android_vendor_lge_sdm845-common" revision="lineage-21" remote="lge-sdm845" />
+</manifest>
