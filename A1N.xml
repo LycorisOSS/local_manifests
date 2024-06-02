@@ -5,10 +5,10 @@
            fetch="https://github.com/log1cs" />
 
   <!-- Device tree & Kernel source & Vendor tree -->
-  <project path="device/nokia/NLA" name="android_device_nokia_NLA" revision="split" remote="log1cs" />
+  <project path="device/nokia/A1N" name="android_device_nokia_A1N" revision="lineage-21" remote="log1cs" />
   <project path="device/nokia/msm8998-common" name="android_device_nokia_msm8998-common" revision="lineage-21" remote="log1cs" />
   <project path="kernel/nokia/msm8998" name="kernel_nokia_msm8998" revision="lineage-21" remote="log1cs" />
-  <project path="vendor/nokia/NLA" name="android_vendor_nokia_NLA" revision="split" remote="log1cs" />
+  <project path="vendor/nokia/A1N" name="android_vendor_nokia_A1N" revision="lineage-21" remote="log1cs" />
   <project path="vendor/nokia/msm8998-common" name="android_vendor_nokia_msm8998-common" revision="lineage-21" remote="log1cs" />  
 
   <!-- External repositories -->
