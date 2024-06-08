@@ -10,11 +10,7 @@
   <project path="kernel/nokia/msm8998" name="kernel_nokia_msm8998" revision="lineage-21" remote="log1cs" />
   <project path="vendor/nokia/A1N" name="android_vendor_nokia_A1N" revision="lineage-21" remote="log1cs" />
   <project path="vendor/nokia/msm8998-common" name="android_vendor_nokia_msm8998-common" revision="lineage-21" remote="log1cs" />  
-
-  <!-- External repositories -->
-  <remove-project path="external/tinyalsa" />
-  <project path="external/tinyalsa" name="android_external_tinyalsa" revision="lineage-21" remote="log1cs" />  
-
+  
   <!-- Hardware repositories -->  
   <remove-project path="hardware/qcom-caf/msm8998/media" />
   <project path="hardware/qcom-caf/msm8998/media" name="android_hardware_qcom_media" revision="lineage-21.0-caf-msm8998" remote="log1cs" /> 
