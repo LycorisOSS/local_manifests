@@ -7,7 +7,6 @@
   <remote  name="lineage"
            fetch="https://github.com/LineageOS" />
 
-
   <!-- Device tree & Kernel source & Vendor tree -->
   <project path="hardware/lge" name="android_hardware_lge" revision="lineage-21" remote="lineage" />
   <project path="device/lge/judypn" name="android_device_lge_judypn" revision="lineage-21" remote="lge-sdm845" />
