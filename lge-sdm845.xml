@@ -4,11 +4,8 @@
   <remote  name="lge-sdm845"
            fetch="https://github.com/lge-sdm845" />
 
-  <remote  name="lineage"
-           fetch="https://github.com/LineageOS" />
-
   <!-- Device tree & Kernel source & Vendor tree -->
-  <project path="hardware/lge" name="android_hardware_lge" revision="lineage-21" remote="lineage" />
+  <project path="hardware/lge" name="android_hardware_lge" revision="lineage-21" remote="lge-sdm845" />
   <project path="device/lge/judypn" name="android_device_lge_judypn" revision="lineage-21" remote="lge-sdm845" />
   <project path="device/lge/sdm845-common" name="android_device_lge_sdm845-common" revision="enforcing/lineage-21" remote="lge-sdm845" />
   <project path="kernel/lge/sdm845" name="android_kernel_lge_sdm845" revision="lineage-21" remote="lge-sdm845" />
