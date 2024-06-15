@@ -7,9 +7,11 @@
   <!-- Device tree & Kernel source & Vendor tree -->
   <project path="hardware/lge" name="android_hardware_lge" revision="lineage-21" remote="lge-sdm845" />
   <project path="device/lge/judypn" name="android_device_lge_judypn" revision="lineage-21" remote="lge-sdm845" />
+  <project path="device/lge/judyp" name="android_device_lge_judyp" revision="lineage-21" remote="lge-sdm845" />
   <project path="device/lge/sdm845-common" name="android_device_lge_sdm845-common" revision="lineage-21" remote="lge-sdm845" />
   <project path="kernel/lge/sdm845" name="android_kernel_lge_sdm845" revision="lineage-21" remote="lge-sdm845" />
   <project path="vendor/lge/judypn" name="proprietary_vendor_lge_judypn" revision="lineage-21" remote="lge-sdm845" />
+  <project path="vendor/lge/judyp" name="proprietary_vendor_lge_judyp" revision="lineage-21" remote="lge-sdm845" />
   <project path="vendor/lge/sdm845-common" name="proprietary_vendor_lge_sdm845-common" revision="lineage-21" remote="lge-sdm845" />
 
   <!-- SEPolicy -->
