@@ -3,10 +3,6 @@
 
   <remote  name="log1cs"
            fetch="https://github.com/log1cs" />
-
-  <!-- Hardware repositories -->  
-  <remove-project path="vendor/lineage" />
-  <project path="vendor/lineage" name="android_vendor_lineage" revision="lineage-21.0" remote="log1cs" /> 
   
   <!-- Device tree & Kernel source & Vendor tree -->
   <project path="device/nokia/NB1" name="android_device_nokia_NB1" revision="split" remote="log1cs" />
