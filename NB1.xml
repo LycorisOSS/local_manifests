@@ -5,10 +5,10 @@
            fetch="https://github.com/nokia-msm8998" />
 
   <project path="hardware/nokia" name="android_hardware_nokia" revision="lineage-21" remote="nokia" />
-  <project path="device/nokia/NB1" name="android_device_nokia_NB1" revision="split" remote="nokia" />
+  <project path="device/nokia/DDV" name="android_device_nokia_DDV" revision="lineage-21" remote="nokia" />
   <project path="device/nokia/msm8998-common" name="android_device_nokia_msm8998-common" revision="lineage-21" remote="nokia" />
-  <project path="kernel/nokia/msm8998" name="android_kernel_nokia_msm8998" revision="lineage-21" remote="nokia" />
-  <project path="vendor/nokia/NB1" name="proprietary_vendor_nokia_NB1" revision="split" remote="nokia" />
+  <project path="kernel/nokia/msm8998" name="android_kernel_nokia_sdm660" revision="lineage-21" remote="nokia" />
+  <project path="vendor/nokia/DDV" name="proprietary_vendor_nokia_DDV" revision="split" remote="nokia" />
   <project path="vendor/nokia/msm8998-common" name="proprietary_vendor_nokia_msm8998-common" revision="lineage-21" remote="nokia" />  
 
 </manifest>
