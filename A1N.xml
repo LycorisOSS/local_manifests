@@ -5,6 +5,7 @@
            fetch="https://github.com/nokia-msm8998" />
 
   <!-- Device tree & Kernel source & Vendor tree -->
+  <project path="hardware/nokia" name="android_hardware_nokia" revision="lineage-21" remote="nokia" />
   <project path="device/nokia/A1N" name="android_device_nokia_A1N" revision="lineage-21" remote="nokia" />
   <project path="device/nokia/msm8998-common" name="android_device_nokia_msm8998-common" revision="lineage-21" remote="nokia" />
   <project path="kernel/nokia/msm8998" name="android_kernel_nokia_msm8998" revision="lineage-21" remote="nokia" />
